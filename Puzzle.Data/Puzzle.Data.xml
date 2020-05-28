@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Puzzle.Data</name>
+    </assembly>
+    <members>
+        <member name="P:Puzzle.Data.Models.Layout.HTML">
+            <summary>
+            HTML content of the <see cref="T:Puzzle.Data.Models.Layout"/>
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Layout.CSS">
+            <summary>
+            CSS content of the <see cref="T:Puzzle.Data.Models.Layout"/>
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Layout.JS">
+            <summary>
+            JavaScript content of the <see cref="T:Puzzle.Data.Models.Layout"/>
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.ParentWebsite">
+            <summary>
+            The parent <see cref="T:Puzzle.Data.Models.Website"/> if it exists
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.ParentPage">
+            <summary>
+            The parent <see cref="T:Puzzle.Data.Models.Page"/> if it exists
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.Pages">
+            <summary>
+            Pages this <see cref="T:Puzzle.Data.Models.Page"/> ist the direct parent of
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.Layout">
+            <summary>
+            The Layout this <see cref="T:Puzzle.Data.Models.Page"/> is based on
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.Name">
+            <summary>
+            The name of the <see cref="T:Puzzle.Data.Models.Page"/> which will be used in the URL
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.HTML">
+            <summary>
+            HTML content of the <see cref="T:Puzzle.Data.Models.Page"/>
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.CSS">
+            <summary>
+            CSS content of the <see cref="T:Puzzle.Data.Models.Page"/>
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Page.JS">
+            <summary>
+            JavaScript content of the <see cref="T:Puzzle.Data.Models.Page"/>
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Website.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Website.Pages">
+            <summary>
+            Pages this <see cref="T:Puzzle.Data.Models.Website"/> is the direct parent of
+            </summary>
+            <example>
+            Pages
+            </example>
+        </member>
+        <member name="P:Puzzle.Data.Models.Website.RootPath">
+            <summary>
+            The URL this <see cref="T:Puzzle.Data.Models.Website"/> runs on
+            </summary>
+        </member>
+        <member name="P:Puzzle.Data.Models.Website.HeadlessMode">
+            <summary>
+            If the <see cref="T:Puzzle.Data.Models.Website"/> should run headless
+            </summary>
+        </member>
+    </members>
+</doc>
