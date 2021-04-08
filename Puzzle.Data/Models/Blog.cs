@@ -2,31 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Puzzle.Core.Interfaces.Data;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// A Group of Posts.
-    /// </summary>
+    /// <inheritdoc cref="IBlog"/>
     [Table]
-    public class Blog
+    public class Blog : IBlog
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey, Identity]
         public Guid ID { get; set; }
 
-        /// <summary>
-        /// The title of the <see cref="Blog"/> which will be used in the URL and frontend.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string Title { get; set; }
 
-        /// <summary>
-        /// Pages this <see cref="Page"/> is the direct parent of.
-        /// </summary>
+        /// <inheritdoc cref="IBlog.Posts"/>
         [Association(ThisKey = nameof(ID), OtherKey = nameof(Post.BlogID), CanBeNull = true, Relationship = Relationship.OneToMany)]
-        public List<Post> Posts { get; set; }
+        public IEnumerable<Post> Posts { get; set; }
+        IEnumerable<IPost> IBlog.Posts => Posts;
     }
 }

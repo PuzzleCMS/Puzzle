@@ -1,38 +1,30 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// A Post.
-    /// </summary>
+    /// <inheritdoc cref="IPost"/>
     [Table]
-    public class Post
+    public class Post : IPost
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey, Identity]
         public Guid ID { get; set; }
 
-        /// <summary>
-        /// HTML content of the <see cref="Post"/>.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string HTML { get; set; }
 
-        /// <summary>
-        /// Foreign key to <see cref="Blog"/>.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public Guid BlogID { get; set; }
 
-        /// <summary>
-        /// The parent <see cref="Blog"/>.
-        /// </summary>
+        /// <inheritdoc cref="IPost.ParentBlog"/>
         [Association(ThisKey = nameof(BlogID), OtherKey = nameof(Blog.ID), CanBeNull = false, Relationship = Relationship.ManyToOne)]
         public Blog ParentBlog { get; set; }
+        IBlog IPost.ParentBlog => ParentBlog;
     }
 }

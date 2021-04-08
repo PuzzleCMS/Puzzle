@@ -1,38 +1,33 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// Combines multiple <see cref="Page"/>s to one web application,
-    /// which has to be served on the specified <see cref="RootPath"/>.
-    /// </summary>
+    /// <inheritdoc cref="IWebsite"/>
     [Table]
-    public class Website
+    public class Website : IWebsite
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey, Identity]
         public Guid ID { get; set; }
 
-        /// <summary>
-        /// Pages this <see cref="Website"/> is the direct parent of.
-        /// </summary>
+        /// <inheritdoc/>
         [Association(ThisKey = nameof(ID), OtherKey = nameof(Page.WebsiteID), CanBeNull = true, Relationship = Relationship.OneToMany)]
-        public List<Page> Pages { get; set; }
+        public IEnumerable<Page> Pages { get; set; }
+        IEnumerable<IPage> IWebsite.Pages => Pages;
 
-        /// <summary>
-        /// The URL this <see cref="Website"/> runs on.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string RootPath { get; set; }
 
-        /// <summary>
-        /// If the <see cref="Website"/> should run headless.
-        /// </summary>
+        /// <inheritdoc/>
+        [Column]
+        public string APIPath { get; set; }
+
+        /// <inheritdoc/>
         [Column]
         public bool HeadlessMode { get; set; }
     }

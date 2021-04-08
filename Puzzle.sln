@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Puzzle.Web", "Puzzle.Web\Puzzle.Web.csproj", "{EFCA2737-53A8-4828-9842-94DC2CC37C75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle.Data", "Puzzle.Data\Puzzle.Data.csproj", "{88294DCF-2C97-4F47-8FAB-AF090806D0EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Puzzle.Data", "Puzzle.Data\Puzzle.Data.csproj", "{88294DCF-2C97-4F47-8FAB-AF090806D0EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Puzzle.Core", "Puzzle.Core\Puzzle.Core.csproj", "{8CD92422-8912-49D0-BABD-83E547E9EEE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{88294DCF-2C97-4F47-8FAB-AF090806D0EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88294DCF-2C97-4F47-8FAB-AF090806D0EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88294DCF-2C97-4F47-8FAB-AF090806D0EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD92422-8912-49D0-BABD-83E547E9EEE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD92422-8912-49D0-BABD-83E547E9EEE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD92422-8912-49D0-BABD-83E547E9EEE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD92422-8912-49D0-BABD-83E547E9EEE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

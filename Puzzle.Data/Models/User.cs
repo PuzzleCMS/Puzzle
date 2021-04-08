@@ -1,50 +1,39 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// Information about a user.
-    /// </summary>
+    /// <inheritdoc cref="IUser"/>
     [Table]
-    public class User
+    public class User : IUser
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey, Identity]
         public Guid ID { get; set; }
-        
-        /// <summary>
-        /// E-Mail .
-        /// </summary>
+
+        /// <inheritdoc/>
         [Column]
         public string Email { get; set; }
 
-        /// <summary>
-        /// The name that is displayed in <see cref="Comment"/>s and <see cref="Post"/>s.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string DisplayName { get; set; }
 
-        /// <summary>
-        /// ID of the <see cref="UserGroup"/> this <see cref="User"/> is in.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public Guid UserGroupID { get; set; }
 
-        /// <summary>
-        /// ID of the <see cref="Login"/>.
-        /// </summary>
-        [Column]
-        public Guid LoginID { get; set; }
+        /// <inheritdoc cref="IUser.ParentUserGroup"/>
+        [Association(ThisKey = nameof(UserGroupID), OtherKey = nameof(UserGroup.ID), CanBeNull = true, Relationship = Relationship.ManyToOne)]
+        public UserGroup ParentUserGroup { get; set; }
+        IUserGroup IUser.ParentUserGroup => ParentUserGroup;
 
-        /// <summary>
-        /// The <see cref="Login"/> associated with this <see cref="User"/>.
-        /// </summary>
-        [Association(ThisKey = nameof(LoginID), OtherKey = nameof(Models.Login.ID), CanBeNull = false, Relationship = Relationship.OneToOne)]
+        /// <inheritdoc cref="IUser.Login"/>
+        [Association(ThisKey = nameof(ID), OtherKey = nameof(Models.Login.UserID), CanBeNull = true, Relationship = Relationship.OneToOne)]
         public Login Login { get; set; }
+        ILogin IUser.Login => Login;
     }
 }

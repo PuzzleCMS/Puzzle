@@ -1,31 +1,24 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// Defines if a <see cref="User"/> of a <see cref="UserGroup"/> has a right to do something.
-    /// </summary>
+    /// <inheritdoc cref="IRight"/>
     [Table]
-    public class Right
+    public class Right : IRight
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey]
         public Guid ID { get; set; }
 
-        /// <summary>
-        /// Readable name that is displayed to the <see cref="User"/>.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string Name { get; set; }
 
-        /// <summary>
-        /// Optional description.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string Description { get; set; }
     }

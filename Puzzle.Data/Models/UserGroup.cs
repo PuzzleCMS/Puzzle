@@ -1,32 +1,31 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// A Group of <see cref="User"/>s with specific rights.
-    /// </summary>
+    /// <inheritdoc cref="IUserGroup"/>
     [Table]
-    public class UserGroup
+    public class UserGroup : IUserGroup
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey, Identity]
         public Guid ID { get; set; }
 
-        /// <summary>
-        /// Name of the <see cref="UserGroup"/>.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public string Name { get; set; }
 
-        /// <summary>
-        /// List of associated Rights for this <see cref="UserGroup"/>.
-        /// </summary>
+        /// <inheritdoc cref="IUserGroup.Users"/>
+        [Association(ThisKey = nameof(ID), OtherKey = nameof(User.UserGroupID), CanBeNull = true, Relationship = Relationship.OneToMany)]
+        public IEnumerable<User> Users { get; set; }
+        IEnumerable<IUser> IUserGroup.Users => throw new NotImplementedException();
+
+        /// <inheritdoc cref="IUserGroup.UserGroupRights"/>
         [Association(ThisKey = nameof(ID), OtherKey = nameof(UserGroupRight.UserGroupID), CanBeNull = true, Relationship = Relationship.OneToMany)]
-        public List<UserGroupRight> UserGroupRights { get; set; }
+        public IEnumerable<UserGroupRight> UserGroupRights { get; set; }
+        IEnumerable<IUserGroupRight> IUserGroup.UserGroupRights => throw new NotImplementedException();
     }
 }

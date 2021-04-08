@@ -1,38 +1,31 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// Association between <see cref="UserGroup"/> and <see cref="Right"/>.
-    /// </summary>
+    /// <inheritdoc cref="IUserGroupRight"/>
     [Table]
-    public class UserGroupRight
+    public class UserGroupRight : IUserGroupRight
     {
-        /// <summary>
-        /// Foreign key to <see cref="Models.UserGroup"/>.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public Guid UserGroupID { get; set; }
 
-        /// <summary>
-        /// Foreign key to <see cref="Models.Right"/>.
-        /// </summary>
+        /// <inheritdoc/>
         [Column]
         public Guid RightID { get; set; }
 
-        /// <summary>
-        /// The assigned UserGroup.
-        /// </summary>
+        /// <inheritdoc cref="IUserGroupRight.UserGroup"/>
         [Association(ThisKey = nameof(UserGroupID), OtherKey = nameof(Models.UserGroup.ID), CanBeNull = false, Relationship = Relationship.ManyToOne)]
         public UserGroup UserGroup { get; set; }
+        IUserGroup IUserGroupRight.UserGroup => UserGroup;
 
-        /// <summary>
-        /// The assigned UserGroup.
-        /// </summary>
+        /// <inheritdoc cref="IUserGroupRight.Right"/>
         [Association(ThisKey = nameof(RightID), OtherKey = nameof(Models.Right.ID), CanBeNull = false, Relationship = Relationship.ManyToOne)]
         public Right Right { get; set; }
+        IRight IUserGroupRight.Right => Right;
     }
 }

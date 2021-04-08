@@ -1,26 +1,20 @@
 ﻿using LinqToDB.Mapping;
+using Puzzle.Core.Interfaces.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Puzzle.Data.Models
 {
-    /// <summary>
-    /// Additional sensible <see cref="User"/> data
-    /// that, for security reasons, is stored separately.
-    /// </summary>
+    /// <inheritdoc cref="ILogin"/>
     [Table]
-    public class Login
+    public class Login : ILogin
     {
-        /// <summary>
-        /// ID.
-        /// </summary>
+        /// <inheritdoc/>
         [Column, PrimaryKey, Identity]
-        public Guid ID { get; set; }
+        public Guid UserID { get; set; }
 
-        /// <summary>
-        /// The Bcrypt hash of the password.
-        /// </summary>
+        /// <inheritdoc/>
         [Column(DataType = LinqToDB.DataType.Char, Length = 60)]
         public string PasswordHash { get; set; }
     }
