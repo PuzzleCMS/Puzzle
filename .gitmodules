@@ -1,0 +1,12 @@
+[submodule "Puzzle.Core"]
+	path = Puzzle.Core
+	url = https://github.com/PuzzleCMS/Puzzle.Core.git
+[submodule "Puzzle.Data"]
+	path = Puzzle.Data
+	url = https://github.com/PuzzleCMS/Puzzle.Data.git
+[submodule "Puzzle.Web"]
+	path = Puzzle.Web
+	url = https://github.com/PuzzleCMS/Puzzle.Web.git
+[submodule "Puzzle.UI"]
+	path = Puzzle.UI
+	url = https://github.com/PuzzleCMS/Puzzle.UI.git
